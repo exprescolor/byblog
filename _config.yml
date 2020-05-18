@@ -101,10 +101,11 @@ friends: [
 
     {
         title: "博客园",
-        href: "http://www.jianshu.com/u/e71990ada2fd"
-    },
-    {
-        title: "QQ",
-        href: "896416562"
+        href: "https://www.cnblogs.com/MrReed/"
     }
+    #,
+    # {
+    #     title: "QQ",
+    #     href: "896416562"
+    # }
 ]
