@@ -1,0 +1,110 @@
+---
+layout:     post
+title:      Nginx
+subtitle:   Nginx 常用操作记录
+date:       2023-03-23
+author:     BY
+header-img: img/post-bg-cook.jpg
+catalog: true
+tags:
+    - Nginx
+---
+
+
+# Windows 配置Nginx服务
+## 电脑C盘根目录下CMD
+### 查看所有进程
+* taskslist
+
+
+### 查看nginx进程
+tasklist /fi  "imagename eq nginx.exe"
+
+
+### 杀死指定进程
+* // PID，多个进程参照/pid····
+* taskkill  /f  /pid 25720 /pid 7556
+
+
+### 杀死所有nginx进程
+* taskkill /f /im nginx.exe
+
+---
+
+## nginx所在盘根目录下（CMD）
+### 安装Windows服务
+* nginx-service.exe install
+
+### 卸载Windows服务
+* nginx-service.exe uninstall
+
+### 启动nginx
+* start nginx.exe
+
+### 强行通知nginx
+* nginx -s stop
+
+### 重新加载nginx配置文件
+*nginx -s reload
+
+### 重启nginx服务
+* nginx -s reopen
+
+
+### 查看nginx版本
+* nginx -v
+
+
+## IIS上配置的VUE项目和WEB API项目，如何用nginx配置实现前端能调用到WEB API 的端口地址
+1. 安装配置nginx
+首先需要安装nginx，可以官网下载对应版本的nginx，然后进行解压缩操作。解压之后，就可以进行nginx配置了。
+
+
+2. 修改nginx配置文件
+在安装目录下的conf目录中，找到nginx.conf文件，这个文件就是nginx的主配置文件，需要进行修改。
+
+```conf
+...
+http {
+    ...
+    server {
+        listen       80;   # 监听80端口
+        server_name  localhost;
+
+        # 配置VUE项目打包后的路径，这里假设打包文件夹为/dist
+        location / {
+            root   D:/VueProject/dist;
+            index  index.html;
+        }
+
+        # 配置WEB API请求的地址和端口，例如8000端口
+        location /api {
+            proxy_pass http://127.0.0.1:8000;
+        }
+    }
+    ...
+}
+```
+
+上面的配置中，`location /` 配置的是VUE项目的访问路径，`location /api` 配置的是WEB API的请求地址和端口。这里需要注意，`proxy_pass` 中的地址为 WEB API 的监听地址和端口。
+
+
+3. 启动nginx
+修改完成配置后，可以通过命令行进入nginx的安装目录下的bin目录，执行以下命令启动nginx：
+
+```bash
+./nginx.exe
+```
+
+可以通过浏览器访问 localhost 页面，查看是否启动成功。
+
+4. 测试访问
+启动nginx之后，打开VUE项目所在的路径，执行以下命令进行打包操作：
+
+```bash
+npm run build
+```
+
+打包完成之后，将dist文件夹下的文件复制到nginx安装目录下的html目录中。
+
+接下来，可以通过访问 `http://localhost/api` 来访问WEB API，或者通过访问 `http://localhost` 来访问VUE项目。
