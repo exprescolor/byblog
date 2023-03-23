@@ -4,7 +4,7 @@ title:      Oracle踩坑系列
 subtitle:   Oracle 2020踩坑 全记录
 date:       2020-05-17
 author:     BY
-header-img: img/post-bg-cook.jpg
+header-img: img/post-bg-desk.jpg
 catalog: true
 tags:
     - Oracle
