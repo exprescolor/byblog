@@ -145,10 +145,15 @@ lion.abp new abp-vnext-pro-basic-no-ocelot -c 公司名称 -p 项目名称 -v �
 
     > 试过官方生成的项目，同样转换了大写后，报的一样的错误，所以定位就是因为改大写导致这个错误，目前这个按时不会，搁置··········
 
-    > 这里注意一下官方生成的项目生成迁移文件时，要在EF下 **右键** -> **在终端中打开** 才能正确执行生成文件脚本（ **dotnet ef migrations add xxx(名称)** ），更新语句是 **dotnet ef database update** ，不过暂时还用不上。
+    > 这里注意一下官方生成的项目生成迁移文件时，要在EF下 **右键** -> **在终端中打开** 才能正确执行生成文件脚本（ **dotnet ef migrations add xxx(名称)** ），更新语句是 **dotnet ef database update** ； 若要撤销此操作（生成文件）则使用 **ef migrations remove** 。
 
-10. 
+10. 移除 **.FreeSqlRepository** 下的 FreeSQL 的引用，重新添加nuget 引用，搜索 **FreeSql.Provider.Oracle** 安装；再修改 **ExamineFreeSqlModule.cs** 下的DataType引用到Oracle即可运行成功(基于迁移时产生大小写的方案，SQL 查询表时要带 双引号 才能查到表)。
+    > 这里需要注意一下，在还没做业务表映射、业务服务编写时，使用 **add-migration xxx** 是没问题，但是当添加表映射后，要生成文件时，是要使用 **dotnet ef migrations add xxx(名称)** 才可以的，如果使用前一个脚本语句会报错无法生成文件；后续更新也是用的  dotnet ef····脚本语句
+
+> 这里补充一下，数据迁移流程：apb pro 项目中，在 EF 下 右键打开终端，使用  **dotnet ef migrations add xxx(名称)** ， 然后 **dotnet ef database update**，最后执行 **.DbMigrator**（作用是写入种子数据），这样才避免控制台输出一些表或视图不存在的错误提示（原因未知）。
    
+#### 自定义表映射实体
+> 在 EF 下的 **ExamineDbContext.cs**  中，找到 **OnModelCreating**  方法，在配置表映射部分中增加 **b.HasKey(x => x.字段名称);** 即可。
 
 ### 后端 for Oracle 10g
 
