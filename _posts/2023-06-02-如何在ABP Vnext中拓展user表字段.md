@@ -99,6 +99,7 @@ tags:
 
 6. 在EF CORE模块下的类ApplicationContractsModule中进行配置
     > 为了是上一步配置生效，还需要在 **项目名称+ApplicationContractsModule**中进行如下配置：
+    
     ```C#
     public override void PreConfigureServices(ServiceConfigurationContext context)
     {
