@@ -61,6 +61,7 @@ tags:
 5. 配置应用层Dto扩展
     > 因头像Avatar信息是我们追加给IdentityUser的，Abp Zero中内置的User相关Dto是没有此项内容的，我们需要对这些Dto做一些添加属性的操作。在Application.Contracts层，新建一个名为MyAppDtoExtensions的类（这里本人使用的ABP Vnext Pro在生成的代码中已经带有了，应该是官方自带的，所有我这里不需要去新建），当然类名称随意。
 
+    > 这里注意，没拓展一个字段就要新增一个AddOrUpdateProperty，如此叠加。
     ```C#
     public static class ExamineDtoExtensions
     {
