@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      Oracle 迁移至 SQL Server
-subtitle:   Oracle 迁移至 SQL Server
+title:      SQL Server如何设置外网远程访问
+subtitle:   SQL Server如何设置外网远程访问
 date:       2023-07-18
 author:     BY
 header-img: img/post-bg-desk.jpg
