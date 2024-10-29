@@ -85,6 +85,17 @@ tags:
   }
 }
 ```
+
 ### 解释
 * "Verified": false 表示查询 Verified 字段为 false 的文档。
 * "Phone": {"$regex": "\\+86"} 表示 Phone 字段中包含 "+86" 的文档。
+
+### 多条件3
+* Verified等于false，并且Phone包含+86
+```json
+{$and:[
+        {"Verified":false},
+        {"CreatedTime":{"$gt": new ISODate('2024-10-14')}}
+      ]}
+```
+
