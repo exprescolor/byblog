@@ -69,12 +69,12 @@ tags:
 
 * PopupControlContainer (popupControlContainer1)：
 
-* Name: popupControlContainer1
-* Location: (30, 60)
-* Size: (300, 400)
-* BorderStyle: Simple
-* Visible: False（默认隐藏）
-* Controls: 将 TreeList 和 Button 添加到此容器内。
+  * Name: popupControlContainer1
+  * Location: (30, 60)
+  * Size: (300, 400)
+  * BorderStyle: Simple
+  * Visible: False（默认隐藏）
+  * Controls: 将 TreeList 和 Button 添加到此容器内。
 
 * TreeList (treeList1)：
 
@@ -96,5 +96,5 @@ tags:
   * Text: 确定
   * Dock: Bottom
   * Height: 30
-  
+
 **注意：** 确保 PopupContainerEdit 和 PopupControlContainer 是独立的控件，都直接添加到窗体（Form）的控件集合中，而不是相互嵌套。
