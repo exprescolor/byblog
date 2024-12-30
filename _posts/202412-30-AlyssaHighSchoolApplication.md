@@ -11,4 +11,8 @@ tags:
     - High School Application
 ---
 
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
 <embed src="https://github.com/JazzikPeng/jazzikpeng.github.io/blob/master/_posts/alyssa/recopied%20%20section1.pdf" width="600" height="500" type="application/pdf">
+
+# pdf 内容
