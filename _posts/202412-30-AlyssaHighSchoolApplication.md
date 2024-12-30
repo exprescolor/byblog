@@ -1,9 +1,9 @@
 ---
 layout:     post
-title:      WIP-Rec System
-subtitle:   An syllabus 
+title:      Alyssa Grace's Journey Sample
+subtitle:   
 date:       2024-12-30
-author:     Zhejian Peng
+author:     Alyssa Peng, Zhejian Peng
 header-img: 
 catalog: true
 tags:
