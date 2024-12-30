@@ -15,4 +15,4 @@ tags:
 
 <embed src="https://github.com/JazzikPeng/jazzikpeng.github.io/blob/master/_posts/alyssa/recopied%20%20section1.pdf" width="600" height="500" type="application/pdf">
 
-# pdf 内容
+# pdf 内容是否能看见
