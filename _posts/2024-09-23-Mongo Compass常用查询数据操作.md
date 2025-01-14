@@ -91,11 +91,20 @@ tags:
 * "Phone": {"$regex": "\\+86"} 表示 Phone 字段中包含 "+86" 的文档。
 
 ### 多条件3
-* Verified等于false，并且Phone包含+86
+* Verified等于false，并且创建时间小于2024-10-14
 ```json
 {$and:[
         {"Verified":false},
         {"CreatedTime":{"$gt": new ISODate('2024-10-14')}}
       ]}
+```
+
+### 条件4
+* CrawlAt大于等于2025-01-12
+
+```join
+
+  {"CrawlAt":{"$gt":ISODate('2025-01-12')}}
+
 ```
 
